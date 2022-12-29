@@ -4,54 +4,63 @@
 <div mat-dialog-content>
 
     <div>
+        <!-- === FIRST NAME === -->
         <mat-form-field class="mr-16 mt-16" appearance="outline">
             <mat-label>First Name</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="Placeholder">
-            <!-- <mat-hint>Please enter a name</mat-hint> -->
+            <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="First Name">
         </mat-form-field>
 
+        <!-- === LAST NAME === -->
         <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Placeholder">
-            <!-- <mat-hint>Please enter a name</mat-hint> -->
+            <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Last Name">
         </mat-form-field>
     </div>
 
     <div>
+        <!-- === EMAIL === -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-Mail</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="E-Mail">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <!-- === BIRTH DATE === -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Birth Date</mat-label>
-            <input [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Placeholder" [matDatepicker]="picker1">
+            <input [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Birth Date" [matDatepicker]="picker1">
             <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
-            <!-- <mat-hint>Please enter a date</mat-hint> -->
         </mat-form-field>
     </div>
 
     <div>
+        <!-- === STREET + HOUSE NO. === -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Street + House No.</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Placeholder">
-            <!-- <mat-hint>Please enter a name</mat-hint> -->
+            <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Street + House No.">
         </mat-form-field>
     </div>
 
     <div>
+        <!-- === ZIP-CODE === -->
         <mat-form-field appearance="outline" class="mr-16">
             <mat-label>Zip code</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Placeholder">
-            <!-- <mat-hint>Please enter a name</mat-hint> -->
+            <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip code">
         </mat-form-field>
 
+        <!-- === CITY === -->
         <mat-form-field appearance="outline">
             <mat-label>City</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="Placeholder">
-            <!-- <mat-hint>Please enter a name</mat-hint> -->
+            <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="City">
         </mat-form-field>
     </div>
 
-
 </div>
-<div mat-dialog-actions>
-    <button mat-button>Cancel</button>
-    <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+
+<!-- === CANCEL & SAVE BUTTONS === -->
+<div mat-dialog-actions class="button-container">
+    <button [disabled]="loading" mat-button (click)="this.dialogRef.close()">Cancel</button>
+    <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
 </div>
