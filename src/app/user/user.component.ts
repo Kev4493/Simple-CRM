@@ -13,18 +13,19 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 export class UserComponent {
 
   user = new User();
-  allUsers = []; 
+  allUsers = [];
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+
     this.firestore
-    .collection('users')
-    .valueChanges()
-    .subscribe((changes: any) => {
-      console.log('Received changes from DB', changes);
-      this.allUsers = changes;
-    });
+      .collection('users')
+      .valueChanges({ idField: 'customIdName' }) // get ID from firestore
+      .subscribe((changes: any) => {
+        console.log('Received changes from DB', changes);
+        this.allUsers = changes;
+      });
   }
 
   openDialog() {
