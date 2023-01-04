@@ -11,7 +11,7 @@ import { User } from 'src/models/user.class';
 export class DialogAddUserComponent {
   user = new User();
   birthDate: Date;
-  loading = false
+  loading = false;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: AngularFirestore) {
 
