@@ -1,4 +1,6 @@
-<mat-drawer-container *ngIf="isLoggedIn" class="mat-drawer-container" autosize>
+<router-outlet></router-outlet>
+
+<mat-drawer-container class="mat-drawer-container" autosize>
 
   <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
     <div class="logo-container">
@@ -6,8 +8,8 @@
     </div>
 
     <ul class="menu-items">
-      <li routerLink="/"><mat-icon>dashboard</mat-icon>Dashboard</li>
-      <li routerLink="/user"><mat-icon>person</mat-icon>User</li>
+      <li routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</li>
+      <li routerLink="user"><mat-icon>person</mat-icon>User</li>
     </ul>
   </mat-drawer>
 
@@ -20,7 +22,10 @@
   </div>
 
   <div class="router-container">
-    <router-outlet></router-outlet>
+    <router-outlet name="dashboard"></router-outlet>
+    <router-outlet name="user"></router-outlet>
+    <router-outlet name="user/id"></router-outlet>
   </div>
 
 </mat-drawer-container>
+
