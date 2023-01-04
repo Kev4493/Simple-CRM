@@ -1,38 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
-
   {
-    path: '',
-    component: DashboardComponent,
+    path: 'home',
+    component: HomeComponent,
     children: [
       {
         path: 'dashboard', 
-        component: DashboardComponent,
-        outlet: 'dashboard'
+        component: DashboardComponent
       },
       {
         path: 'user', 
-        component: UserComponent,
-        outlet: 'user'
+        component: UserComponent
       },
       {
         path: 'user/:id', 
-        component: UserDetailComponent,
-        outlet: 'user/id'
+        component: UserDetailComponent
       }
     ]
-  },
+  }
 ];
 
 @NgModule({
